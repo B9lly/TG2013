@@ -1,0 +1,5 @@
+hnrsircim:
+    resource: "@hnrsircimBundle/Controller/"
+    type:     annotation
+    prefix:   /
+

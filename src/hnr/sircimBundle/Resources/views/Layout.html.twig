@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block titulo %}SIRCIM{% endblock %}</title>
+    
+    {# Bloque para hojas de estilo #}
+    {% block stylesheets %}
+        <link href="{{ asset('bundles/hnrsircim/css/styles.css') }}" rel="stylesheet" type="text/css"/>
+        <link href='http://fonts.googleapis.com/css?family=Anaheim' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Roboto:300' rel='stylesheet' type='text/css'>
+    {% endblock %}
+    
+    {# Bloque para javascript #}    
+    {% block javascripts %}            
+        <script src="{{ asset('bundles/hnrsircim/js/jquery-1.10.2.min.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('bundles/hnrsircim/js/layout.js') }}" type="text/javascript"></script>
+    {% endblock %}  
+                
+</head>
+
+<body>
+	
+<header>
+    <div id="header_container">
+        <h1><a title="SIRCIM" href="/">SIRCIM</a></h1>
+	<div id="usr">
+            <ul id="usr_menu">
+                <li><button id="mostrar_opc_sesion"></button></li>
+                <li>
+                    <a href=""> 
+                        {# Bloque para nombre de usuario #}
+                        {% block nombre_usr %} Billy H. Balette {% endblock %} 
+                    </a>
+                </li>
+            </ul>
+            <ul id="usr_opciones_sesion">
+		<li><a href="">Configuraci&oacute;n de cuenta</a></li>
+		<li><a href="">Ayuda</a></li>
+		<li class="sign_out"><a href="">Cerrar sesi&oacute;n</a></li>
+            </ul>
+	</div>
+    </div>
+</header>
+
+<nav>
+    <div id="menu_mod_container">
+        <button id="seleccionar_modulo"> 
+            {# Bloque para nombre del modulo activo #}
+            {% block mod_activo %} Programaci&oacute;n de citas {% endblock %} 
+        </button>
+	<div id="botones_modulo">
+            {# Bloque para botones del modulo activo #}
+            {% block botones_modulo %} {% endblock %} 
+        </div>
+    </div>
+    <ul id="lista_modulos">
+        {# Bloque para listado de modulos accesibles #}
+        {% block lista_modulos %}
+            <li><a href="">Registro de estudios</a></li>
+            <li><a href="">Administraci&oacute;n</a></li>
+            <li><a href="">Transcripci&oacute;n</a></li>
+        {% endblock %}
+    </ul>
+</nav>
+
+<div id="area_trabajo">
+    {# Bloque para area de trabajo de cada modulo #}
+    {% block area_trabajo %} {% endblock %}
+</div>
+
+<footer>
+	Derechos reservados 2013 &copy; &middot;
+	<a href="#">Acerca de SIRCIM</a>
+</footer>
+
+</body>
+</html>
