@@ -2,5 +2,7 @@
 @import url('Base/normalize.css');
 
 /*Layout*/
-@import url('Layout/Layout.css');
+@import url('Layout/layout.css');
 
+/*Componentes*/
+@import url('Componentes/botones.css');

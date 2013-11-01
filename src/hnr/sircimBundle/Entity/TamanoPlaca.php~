@@ -1,0 +1,68 @@
+<?php
+
+namespace hnr\sircimBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * TamanoPlaca
+ *
+ * @ORM\Table(name="tamano_placa")
+ * @ORM\Entity
+ */
+class TamanoPlaca
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="tamano_placa_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="tp_tamano", type="string", length=7, nullable=false)
+     */
+    private $tpTamano;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="tp_estado", type="smallint", nullable=false)
+     */
+    private $tpEstado;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="tp_usuario_creacion", type="string", length=15, nullable=false)
+     */
+    private $tpUsuarioCreacion;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="tp_usuario_modificacion", type="string", length=15, nullable=true)
+     */
+    private $tpUsuarioModificacion;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="tp_fecha_creacion", type="datetime", nullable=false)
+     */
+    private $tpFechaCreacion;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="tp_fecha_modificacion", type="datetime", nullable=true)
+     */
+    private $tpFechaModificacion;
+
+
+}

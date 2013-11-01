@@ -1,0 +1,46 @@
+<?php
+
+namespace hnr\sircimBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * RolOpcionSistema
+ *
+ * @ORM\Table(name="rol_opcion_sistema")
+ * @ORM\Entity
+ */
+class RolOpcionSistema
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="rol_opcion_sistema_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var \Rol
+     *
+     * @ORM\ManyToOne(targetEntity="Rol")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_rol", referencedColumnName="id")
+     * })
+     */
+    private $idRol;
+
+    /**
+     * @var \OpcionSistema
+     *
+     * @ORM\ManyToOne(targetEntity="OpcionSistema")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_opcion_sistema", referencedColumnName="id")
+     * })
+     */
+    private $idOpcionSistema;
+
+
+}

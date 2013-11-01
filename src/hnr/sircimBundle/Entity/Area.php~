@@ -1,0 +1,89 @@
+<?php
+
+namespace hnr\sircimBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Area
+ *
+ * @ORM\Table(name="area")
+ * @ORM\Entity
+ */
+class Area
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="area_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ar_nombre", type="string", length=30, nullable=false)
+     */
+    private $arNombre;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ar_descripcion", type="string", length=100, nullable=false)
+     */
+    private $arDescripcion;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ar_cupo", type="smallint", nullable=true)
+     */
+    private $arCupo;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ar_estado_cupo", type="smallint", nullable=false)
+     */
+    private $arEstadoCupo;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ar_estado", type="smallint", nullable=false)
+     */
+    private $arEstado;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ar_usuario_creacion", type="string", length=15, nullable=false)
+     */
+    private $arUsuarioCreacion;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ar_usuario_modificacion", type="string", length=15, nullable=true)
+     */
+    private $arUsuarioModificacion;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="ar_fecha_creacion", type="datetime", nullable=false)
+     */
+    private $arFechaCreacion;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="ar_fecha_modificacion", type="datetime", nullable=true)
+     */
+    private $arFechaModificacion;
+
+
+}

@@ -1,0 +1,137 @@
+{% extends 'hnrsircimBundle::Layout.html.twig' %}
+
+{% block body -%}
+    <h1>EstudioRadiologico creation</h1>
+
+    <form action="{{ path('estudioradiologico_create') }}" method="post" {{ form_enctype(form) }}>
+        {{ form_errors(form) }}
+        {{ form_row(form.erEdadPaciente) }}
+        {{ form_row(form.idempleado) }}
+        {{ form_row(form.idSolicitud) }}
+        
+        <div class="placas" data-prototype="{{ form_widget(form.placas.vars.prototype)|e }}">
+            {{ form_rest(form) }}
+        </div> 
+            
+        <p>
+            <button type="submit">Create</button>
+        </p>
+    </form>
+
+    <ul class="record_actions">
+        <li>
+            <a href="{{ path('estudioradiologico') }}">
+                Back to the list
+            </a>
+        </li>
+    </ul>
+    
+{% endblock %}
+    
+{% block script %}
+    <script>
+            
+        // Get the div that holds the collection of tags
+        var collectionHolder = $('div.placas');
+
+        // setup an "add a tag" link
+        var $addTagLink = $('<a href="#" class="add_tag_link">Agregar placas</a>');
+        var $newLinkLi = $('<li></li>').append($addTagLink);
+
+        $(document).ready(function() {
+            
+            // add the "add a tag" anchor and li to the tags ul
+            collectionHolder.append($newLinkLi);
+
+            $addTagLink.on('click', function(e) {
+                // prevent the link from creating a "#" on the URL
+                e.preventDefault();
+
+                // add a new tag form (see next code block)
+                addPlacasForm(collectionHolder, $newLinkLi);
+            });
+            
+            // add a delete link to all of the existing tag form li elements
+            collectionHolder.find('.placasForm').each(function() {
+                addTagFormDeleteLink($(this));
+            });
+        }); 
+
+        function addPlacasForm(collectionHolder, $newLinkLi) {
+            // Get the data-prototype we explained earlier
+            var prototype = collectionHolder.attr('data-prototype');
+
+            // Replace '__name__' in the prototype's HTML to
+            // instead be a number based on the current collection's length.
+            var newForm = prototype.replace(/__name__/g, collectionHolder.children().length);
+
+            // Display the form in the page in an li, before the "Add a tag" link li
+            var $newFormLi = $('<li"></li>').append(newForm);
+            $newLinkLi.before($newFormLi);
+            
+            // add a delete link to the new form
+            addTagFormDeleteLink($newFormLi);
+        }
+        
+        function addTagFormDeleteLink($tagFormLi) {
+            var $removeFormA = $('<a href="#">Borrar Form</a>');
+            $tagFormLi.append($removeFormA);
+
+            $removeFormA.on('click', function(e) {
+                // prevent the link from creating a "#" on the URL
+                e.preventDefault();
+
+                // remove the li for the tag form
+                $tagFormLi.remove();
+            });
+        }
+
+        //Listas desplegables
+        $('select[id$="_idSolicitud_EstudioArea"]').change(function() {
+        
+        $('select[id$="_idSolicitud_soRegion"]').children().remove();
+        $('select[id$="_idSolicitud_soRegion"]').append('<option value="">Seleccione...</option>');
+        $('select[id$="_idSolicitud_soPosicion"]').children().remove();
+        $('select[id$="_idSolicitud_soPosicion"]').append('<option value="">Seleccione...</option>');
+        
+        $parameters = '?nomEstudio=' + $(this).find("option:selected").text();
+        
+        $.getJSON(Routing.generate('get_regiones')+$parameters,
+                    function(data) {
+                        $.each(data.regs, function(indice, reg) {
+                            $('select[id$="_idSolicitud_soRegion"]').append('<option value="' + reg.reNombre + '">' + reg.reNombre + '</option>');                       
+                        });
+                    });
+        
+        $.getJSON(Routing.generate('get_posiciones')+$parameters,
+                    function(data) {
+                        $.each(data.regs, function(indice, reg) {
+                            $('select[id$="_idSolicitud_soPosicion"]').append('<option value="' + reg.poNombre + '">' + reg.poNombre + '</option>');                       
+                        });
+                    });
+                    
+        $('select[id$="_idSolicitud_soRegion"]').removeAttr('disabled');
+    });
+
+    $(document).ready( function(){
+        document.getElementById("hnr_sircimbundle_estudioradiologicotype_idSolicitud_soRegion").disabled = true;
+    });
+    
+    //Info de paciente
+    $('#hnr_sircimbundle_estudioradiologicotype_idSolicitud_idMntExpediente').keyup(function(){
+        
+            $parameters = '?numExpediente=' + $(this).val();
+            
+            $.getJSON(Routing.generate('get_infopaciente')+$parameters,
+                    function(data) {
+                        $.each(data.regs, function(indice, reg) {
+                            $('#hnr_sircimbundle_estudioradiologicotype_idSolicitud_Nombre').val( reg.Nombre );
+                            $('#hnr_sircimbundle_estudioradiologicotype_erEdadPaciente').val( reg.Edad );                            
+                        });
+                    });
+        
+    });
+     </script>
+{% endblock %}
+
+     

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Usuario" table="usuario">
+    <id name="id" type="integer" column="id">
+      <generator strategy="SEQUENCE"/>
+    </id>
+    <field name="usLogin" type="string" column="us_login" length="15" nullable="false"/>
+    <field name="usCorreo" type="text" column="us_correo" nullable="false"/>
+    <field name="usContrasena" type="string" column="us_contrasena" length="128" nullable="false"/>
+    <field name="usActualizarContrasena" type="smallint" column="us_actualizar_contrasena" nullable="false"/>
+    <field name="usEstadoActivo" type="smallint" column="us_estado_activo" nullable="false"/>
+    <field name="usEstadoBloqueado" type="smallint" column="us_estado_bloqueado" nullable="false"/>
+    <field name="idempleado" type="string" column="idempleado" length="7" nullable="false"/>
+    <field name="usUsuarioCreacion" type="string" column="us_usuario_creacion" length="15" nullable="false"/>
+    <field name="usUsuarioModificacion" type="string" column="us_usuario_modificacion" length="15" nullable="true"/>
+    <field name="usFechaCreacion" type="datetime" column="us_fecha_creacion" nullable="false"/>
+    <field name="usFechaModificacion" type="datetime" column="us_fecha_modificacion" nullable="true"/>
+  </entity>
+</doctrine-mapping>

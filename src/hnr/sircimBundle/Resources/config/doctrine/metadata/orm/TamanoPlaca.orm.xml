@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="TamanoPlaca" table="tamano_placa">
+    <id name="id" type="integer" column="id">
+      <generator strategy="SEQUENCE"/>
+    </id>
+    <field name="tpTamano" type="string" column="tp_tamano" length="7" nullable="false"/>
+    <field name="tpEstado" type="smallint" column="tp_estado" nullable="false"/>
+    <field name="tpUsuarioCreacion" type="string" column="tp_usuario_creacion" length="15" nullable="false"/>
+    <field name="tpUsuarioModificacion" type="string" column="tp_usuario_modificacion" length="15" nullable="true"/>
+    <field name="tpFechaCreacion" type="datetime" column="tp_fecha_creacion" nullable="false"/>
+    <field name="tpFechaModificacion" type="datetime" column="tp_fecha_modificacion" nullable="true"/>
+  </entity>
+</doctrine-mapping>

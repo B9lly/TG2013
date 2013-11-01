@@ -1,0 +1,61 @@
+<?php
+
+namespace hnr\sircimBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Region
+ *
+ * @ORM\Table(name="region")
+ * @ORM\Entity
+ */
+class Region
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="region_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="re_nombre", type="string", length=50, nullable=false)
+     */
+    private $reNombre;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="re_usuario_creacion", type="string", length=15, nullable=false)
+     */
+    private $reUsuarioCreacion;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="re_usuario_modificacion", type="string", length=15, nullable=true)
+     */
+    private $reUsuarioModificacion;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="re_fecha_creacion", type="datetime", nullable=false)
+     */
+    private $reFechaCreacion;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="re_fecha_modificacion", type="datetime", nullable=true)
+     */
+    private $reFechaModificacion;
+
+
+}

@@ -1,0 +1,57 @@
+{% extends 'hnrsircimBundle::Layout.html.twig' %}
+
+{% block body -%}
+    <h1>Area list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Arnombre</th>
+                <th>Ardescripcion</th>
+                <th>Arcupo</th>
+                <th>Arestadocupo</th>
+                <th>Arestado</th>
+                <th>Arusuariocreacion</th>
+                <th>Arusuariomodificacion</th>
+                <th>Arfechacreacion</th>
+                <th>Arfechamodificacion</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('area_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.arNombre }}</td>
+                <td>{{ entity.arDescripcion }}</td>
+                <td>{{ entity.arCupo }}</td>
+                <td>{{ entity.arEstadoCupo }}</td>
+                <td>{{ entity.arEstado }}</td>
+                <td>{{ entity.arUsuarioCreacion }}</td>
+                <td>{{ entity.arUsuarioModificacion }}</td>
+                <td>{% if entity.arFechaCreacion %}{{ entity.arFechaCreacion|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if entity.arFechaModificacion %}{{ entity.arFechaModificacion|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('area_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('area_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('area_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

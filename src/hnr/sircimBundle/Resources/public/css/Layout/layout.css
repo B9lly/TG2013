@@ -1,0 +1,324 @@
+body {
+    font-family: 'Anaheim', sans-serif, Arial, Helvetica;
+    min-width: 1000px;
+    min-height: 600px;
+    margin: 0px;
+}
+
+header {
+    position: relative;
+    width: 100%;
+    height: 8%;
+
+    background: -webkit-linear-gradient(to bottom, #3B97D6 10%, #fff 0%);
+    background:    -moz-linear-gradient(to bottom, #3B97D6 10%, #fff 0%);
+    background:      -o-linear-gradient(to bottom, #3B97D6 10%, #fff 0%);
+    background:     -ms-linear-gradient(to bottom, #3B97D6 10%, #fff 0%);
+    background:         linear-gradient(to bottom, #3B97D6 10%, #fff 0%); 
+}
+
+/***************************
+    Logo y opc. de sesión    
+***************************/
+
+    /* Logo */
+    header #header_container {
+        position: absolute;
+        top: 10%;
+        left: 0;
+        right: 0;
+        height: 90%;
+        width: 90%;
+        min-height: 40px;
+        margin: 0 auto;
+    }
+
+    #header_container h1 {
+        float: left;
+        margin: 0;
+        height: 100%;
+        width: 200px;
+        background-color: #3B97D6;
+    }
+
+    #header_container h1 a {
+        font-family: Arial;
+        font-weight: lighter;
+        color: #fff;
+        text-align: center;
+        display: block;
+        font-size: 25px;
+        line-height: 50px;
+        text-decoration: none;
+    }
+
+    /*  Opciones de sesión  */
+    header #usr {
+        position: relative;
+        font-family: Arial;
+        font-size: 15px;
+        font-weight: lighter;
+        height: 100%;
+        width: auto; 
+        float: right;
+        line-height: 50px;
+    }
+
+    #usr_menu li{
+        float: right;
+        margin-left: 20px;
+    }
+
+    #usr_menu a{
+        text-decoration: none;
+        color: #727272;
+    }
+
+    #usr_menu a:hover{
+        text-decoration: underline;
+    }
+
+    #usr_menu #mostrar_opc_sesion{
+        display: block;
+        width: 20px;
+        height: 20px;
+        margin-top: 70%;
+        cursor: pointer;
+        border: none;
+        background: none;
+        background-image: url('../../img/lineas.png');
+        background-repeat: no-repeat;
+        background-position:  100% 50%;
+    }
+
+    #usr_menu #mostrar_opc_sesion::-moz-focus-inner {
+      border: none;
+    }
+
+    #usr_menu #mostrar_opc_sesion:hover{
+        background-image: url('../../img/lineas_hover.png');
+    }
+
+    #usr #usr_opciones_sesion{
+        visibility: hidden;
+        opacity: 1;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: -10%;
+        border: 1px solid;
+        border-color: #d9d9d9;
+        border-radius: 3px;
+        background-color: #fff;        
+        z-index: 100;
+        -webkit-box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.9), 0 1px 2px rgba(0, 0, 0, 0.1);
+                box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.9), 0 1px 2px rgba(0, 0, 0, 0.1);
+    }
+
+    #usr_opciones_sesion:before, #usr_opciones_sesion:after, #usr_opciones_sesion li:first-child:after {
+        display: block;
+        content: '';
+        width: 0;
+        height: 0;
+        position: absolute;
+        right: 16px;
+        border: 7px outset transparent;
+    }
+
+    #usr_opciones_sesion:before {
+        border-bottom: 7px solid #ccc;
+        top: -14px;
+    }
+
+    #usr_opciones_sesion li:first-child:after {
+        border-bottom: 7px solid #fff;
+        top: -13px;
+    }
+
+    #usr_opciones_sesion li{
+        padding: 0 12px;
+        margin: 2px 0;
+        font-size: 12px;
+        line-height: 2;
+    }
+
+    #usr_opciones_sesion .sign_out{
+        font-weight: bold;
+        border-top: 1px solid #d9d9d9;
+        padding-top: 4px;
+        margin-top: 4px;
+    }
+
+    #usr_opciones_sesion a{
+        display: block;
+        position: relative;
+        margin: 0 -13px;
+        padding: 0 20px 0 12px;
+        color: #3B97D6;
+        text-decoration: none;
+        border: 1px solid transparent;
+    }
+
+    #usr_opciones_sesion a:hover{
+        color: #fff;
+        text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+        background-color: #7ab9e3;
+    }
+
+/************************
+    Opciones de modulo    
+************************/
+
+nav {
+    position: relative;
+    font-family: 'Roboto', Arial;
+    font-size: 18px;
+    font-weight: 300;
+    color: #727272;
+    width: 90%;
+    height: 5%;
+    margin: 0 auto; 
+    -webkit-box-shadow: inset #ccc 0 -1px 0 0;
+            box-shadow: inset #ccc 0 -1px 0 0; 
+}
+    
+    nav.sticky{
+        position: fixed;
+        top: 0;
+        left: 5%;
+        z-index: 10000;
+        background-color: #fff;
+    }
+
+    nav #menu_mod_container{
+        position: absolute;
+        height: 90%;
+        width: 100%;
+        top: 10%;
+        left:0;
+        right:0;
+        margin-left:auto;
+        margin-right:auto;
+    }
+
+    nav #seleccionar_modulo{
+        height: 100%;
+        width: auto;
+        float: left;
+        display: block;
+        padding: 0 20px 0 0;
+        border: none;
+        line-height: 100%;
+        font-family: inherit;
+        font-size: inherit;
+        color: inherit;
+        cursor: pointer;
+        background: none;
+        background-image: url('../../img/flecha_simple.png');
+        background-repeat: no-repeat;
+        background-position:  100% 55%;
+    }
+
+    nav #seleccionar_modulo::-moz-focus-inner {
+      border: 0;
+    }
+
+    nav #botones_modulo{
+        position: absolute;
+        top:10%;
+        right: 0;
+        height: 80%;
+        width: auto;
+    }
+
+    nav #lista_modulos{
+        visibility: hidden;
+        opacity: 1;
+        position: absolute;
+        top: 120%;
+        left: 0%;
+        border: 1px solid;
+        border-color: #d9d9d9;
+        border-radius: 3px;
+        background-color: #fff;
+        z-index: 100;
+        -webkit-box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.9), 0 1px 2px rgba(0, 0, 0, 0.1);
+                box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.9), 0 1px 2px rgba(0, 0, 0, 0.1);
+    }
+
+    #lista_modulos:before, #lista_modulos:after, #lista_modulos li:first-child:after {
+        display: block;
+        content: '';
+        width: 0;
+        height: 0;
+        position: absolute;
+        left: 25px;
+        border: 7px outset transparent;
+    }
+
+    #lista_modulos:before {
+        border-bottom: 7px solid #ccc;
+        top: -14px;
+    }
+
+    #lista_modulos li:first-child:after {
+        border-bottom: 7px solid #fff;
+        top: -13px;
+    }
+
+    #lista_modulos li{
+        padding: 0 12px;
+        margin: 2px 0;
+        font-size: 15px;
+        line-height: 2;
+    }
+
+    #lista_modulos a{
+        display: block;
+        position: relative;
+        margin: 0 -13px;
+        padding: 0 20px 0 12px;
+        color: #3B97D6;
+        text-decoration: none;
+        border: 1px solid transparent;
+    }
+
+    #lista_modulos a:hover{
+        color: #fff;
+        text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+        background-color: #7ab9e3;
+    }
+
+
+/*******************************
+    Área de trabajo de modulo    
+*******************************/
+
+#area_trabajo {
+    width: 90%;
+    min-height: 83%;
+    margin: 0 auto; 
+}
+
+/************************
+      Pie de página    
+************************/
+
+footer {
+    width: 90%;
+    height: 4%;
+    margin: 0 auto; 
+    font-family: 'Roboto', Arial;
+    font-size: 11px;
+    font-weight: 300;
+    line-height: 20px;
+    color: #727272;
+
+    -webkit-box-shadow: inset #ccc 0 1px 0 0;
+            box-shadow: inset #ccc 0 1px 0 0;   
+}
+
+    footer a, footer a:hover, footer a:visited, footer a:active{
+        text-decoration: none;
+        color: #3B97D6;
+    }

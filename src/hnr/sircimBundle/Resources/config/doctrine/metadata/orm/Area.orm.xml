@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Area" table="area">
+    <id name="id" type="integer" column="id">
+      <generator strategy="SEQUENCE"/>
+    </id>
+    <field name="arNombre" type="string" column="ar_nombre" length="30" nullable="false"/>
+    <field name="arDescripcion" type="string" column="ar_descripcion" length="100" nullable="false"/>
+    <field name="arCupo" type="smallint" column="ar_cupo" nullable="true"/>
+    <field name="arEstadoCupo" type="smallint" column="ar_estado_cupo" nullable="false"/>
+    <field name="arEstado" type="smallint" column="ar_estado" nullable="false"/>
+    <field name="arUsuarioCreacion" type="string" column="ar_usuario_creacion" length="15" nullable="false"/>
+    <field name="arUsuarioModificacion" type="string" column="ar_usuario_modificacion" length="15" nullable="true"/>
+    <field name="arFechaCreacion" type="datetime" column="ar_fecha_creacion" nullable="false"/>
+    <field name="arFechaModificacion" type="datetime" column="ar_fecha_modificacion" nullable="true"/>
+  </entity>
+</doctrine-mapping>

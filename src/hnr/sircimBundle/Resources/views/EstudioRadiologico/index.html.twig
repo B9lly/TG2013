@@ -1,0 +1,43 @@
+{% extends 'hnrsircimBundle::Layout.html.twig' %}
+
+{% block body -%}
+    <h1>EstudioRadiologico list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Eredadpaciente</th>
+                <th>Idempleado</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('estudioradiologico_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.erEdadPaciente }}</td>
+                <td>{{ entity.idempleado }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('estudioradiologico_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('estudioradiologico_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('estudioradiologico_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

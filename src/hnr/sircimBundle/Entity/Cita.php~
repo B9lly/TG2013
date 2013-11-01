@@ -1,0 +1,50 @@
+<?php
+
+namespace hnr\sircimBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Cita
+ *
+ * @ORM\Table(name="cita")
+ * @ORM\Entity
+ */
+class Cita
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="cita_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ci_edad_paciente", type="smallint", nullable=false)
+     */
+    private $ciEdadPaciente;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ci_estado", type="string", length=11, nullable=false)
+     */
+    private $ciEstado;
+
+    /**
+     * @var \Solicitud
+     *
+     * @ORM\ManyToOne(targetEntity="Solicitud")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_solicitud", referencedColumnName="id")
+     * })
+     */
+    private $idSolicitud;
+
+
+}

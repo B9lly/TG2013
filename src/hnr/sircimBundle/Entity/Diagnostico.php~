@@ -1,0 +1,57 @@
+<?php
+
+namespace hnr\sircimBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Diagnostico
+ *
+ * @ORM\Table(name="diagnostico")
+ * @ORM\Entity
+ */
+class Diagnostico
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="diagnostico_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="di_resultado", type="text", nullable=false)
+     */
+    private $diResultado;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="di_conclusion", type="text", nullable=false)
+     */
+    private $diConclusion;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="idempleado", type="string", length=7, nullable=false)
+     */
+    private $idempleado;
+
+    /**
+     * @var \EstudioRadiologico
+     *
+     * @ORM\ManyToOne(targetEntity="EstudioRadiologico")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_estudio_radiologico", referencedColumnName="id")
+     * })
+     */
+    private $idEstudioRadiologico;
+
+
+}

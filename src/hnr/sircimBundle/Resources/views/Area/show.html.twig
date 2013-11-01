@@ -1,0 +1,70 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Area</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Arnombre</th>
+                <td>{{ entity.arNombre }}</td>
+            </tr>
+            <tr>
+                <th>Ardescripcion</th>
+                <td>{{ entity.arDescripcion }}</td>
+            </tr>
+            <tr>
+                <th>Arcupo</th>
+                <td>{{ entity.arCupo }}</td>
+            </tr>
+            <tr>
+                <th>Arestadocupo</th>
+                <td>{{ entity.arEstadoCupo }}</td>
+            </tr>
+            <tr>
+                <th>Arestado</th>
+                <td>{{ entity.arEstado }}</td>
+            </tr>
+            <tr>
+                <th>Arusuariocreacion</th>
+                <td>{{ entity.arUsuarioCreacion }}</td>
+            </tr>
+            <tr>
+                <th>Arusuariomodificacion</th>
+                <td>{{ entity.arUsuarioModificacion }}</td>
+            </tr>
+            <tr>
+                <th>Arfechacreacion</th>
+                <td>{{ entity.arFechaCreacion|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Arfechamodificacion</th>
+                <td>{{ entity.arFechaModificacion|date('Y-m-d H:i:s') }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('area') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('area_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>
+        <form action="{{ path('area_delete', { 'id': entity.id }) }}" method="post">
+            <input type="hidden" name="_method" value="DELETE" />
+            {{ form_widget(delete_form) }}
+            <button type="submit">Delete</button>
+        </form>
+    </li>
+</ul>
+{% endblock %}

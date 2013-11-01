@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Rol" table="rol">
+    <id name="id" type="integer" column="id">
+      <generator strategy="SEQUENCE"/>
+    </id>
+    <field name="roNombre" type="string" column="ro_nombre" length="50" nullable="false"/>
+    <field name="roDescripcion" type="string" column="ro_descripcion" length="100" nullable="false"/>
+    <field name="roModificable" type="smallint" column="ro_modificable" nullable="false"/>
+    <field name="roEstado" type="smallint" column="ro_estado" nullable="false"/>
+    <field name="roUsuarioCreacion" type="string" column="ro_usuario_creacion" length="15" nullable="false"/>
+    <field name="roUsuarioModificacion" type="string" column="ro_usuario_modificacion" length="15" nullable="true"/>
+    <field name="roFechaCreacion" type="datetime" column="ro_fecha_creacion" nullable="false"/>
+    <field name="roFechaModificacion" type="datetime" column="ro_fecha_modificacion" nullable="true"/>
+  </entity>
+</doctrine-mapping>

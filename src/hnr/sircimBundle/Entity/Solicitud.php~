@@ -1,0 +1,78 @@
+<?php
+
+namespace hnr\sircimBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Solicitud
+ *
+ * @ORM\Table(name="solicitud")
+ * @ORM\Entity
+ */
+class Solicitud
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="solicitud_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="so_tipo", type="smallint", nullable=false)
+     */
+    private $soTipo;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="so_fecha", type="date", nullable=false)
+     */
+    private $soFecha;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="so_region", type="string", length=50, nullable=false)
+     */
+    private $soRegion;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="so_posicion", type="text", nullable=false)
+     */
+    private $soPosicion;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_mnt_expediente", type="bigint", nullable=false)
+     */
+    private $idMntExpediente;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_mnt_aten_area_mod_estab", type="integer", nullable=true)
+     */
+    private $idMntAtenAreaModEstab;
+
+    /**
+     * @var \EstudioArea
+     *
+     * @ORM\ManyToOne(targetEntity="EstudioArea")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_estudio_area", referencedColumnName="id")
+     * })
+     */
+    private $idEstudioArea;
+
+
+}

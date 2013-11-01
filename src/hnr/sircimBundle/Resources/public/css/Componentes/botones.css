@@ -1,0 +1,123 @@
+/***************
+      botones    
+***************/
+
+#botones_modulo .menu_grupo{
+    height: 100%;
+    width: auto;
+    float: right;
+    margin-left: 5px;
+}
+
+.menu_grupo .btn{
+    height: 100%;
+    width: 50px;
+    float: right;
+    border: none;
+    border-radius: 3px;
+    background: none;
+    cursor: pointer;
+
+    font-family: inherit;
+    font-size: 12px;
+    text-align: center;
+
+    -webkit-touch-callout: none;
+      -webkit-user-select: none;
+       -khtml-user-select: none;
+         -moz-user-select: none;
+          -ms-user-select: none;
+              user-select: none;
+}
+
+    .menu_grupo .btn::-moz-focus-inner {
+        border: 0;
+    }
+
+.menu_grupo .btn_destacado{
+    background: #e85243;
+}
+
+    .menu_grupo .btn_destacado:first-child{
+        margin-left: 2px;
+    }
+
+.menu_grupo #buscar{
+    background-image: url('../../img/btn_buscar.png');
+    background-repeat: no-repeat;
+    background-position:  50% 55%;
+}
+
+.menu_grupo #nuevo{
+    background-image: url('../../img/btn_nuevo.png');
+    background-repeat: no-repeat;
+    background-position:  50% 55%;
+}
+
+.menu_grupo input[type=radio]{
+    display: none;
+}
+
+.menu_grupo .btn_regular{
+    line-height: 24px;
+    color: #7F7F7F;
+    background-color: #F2F2F2;
+    border-radius: 0;
+    -webkit-box-shadow: inset 0 0 0 1px #d8d8d8;
+            box-shadow: inset 0 0 0 1px #d8d8d8;
+}
+
+    .menu_grupo .btn_regular:hover{
+        background-color: #d8d8d8;
+    }
+    
+.menu_grupo .btn_toggle{
+    width: 60px;
+}
+
+    .menu_grupo .btn_toggle:nth-of-type(1){
+        -webkit-border-radius: 0 3px 3px 0;
+           -moz-border-radius: 0 3px 3px 0;
+                border-radius: 0 3px 3px 0;
+
+        -webkit-box-shadow: inset -2px 0 0 -1px #d8d8d8,
+                            inset 0 2px 0 -1px #d8d8d8,
+                            inset 0 -2px 0 -1px #d8d8d8;
+                box-shadow: inset -2px 0 0 -1px #d8d8d8,
+                            inset 0 2px 0 -1px #d8d8d8,
+                            inset 0 -2px 0 -1px #d8d8d8;
+    }
+
+    .menu_grupo .btn_toggle:nth-of-type(3){
+        -webkit-border-radius: 3px 0 0 3px;
+           -moz-border-radius: 3px 0 0 3px;
+                border-radius: 3px 0 0 3px;
+
+        -webkit-box-shadow: inset 2px 0 0 -1px #d8d8d8,
+                            inset 0 2px 0 -1px #d8d8d8,
+                            inset 0 -2px 0 -1px #d8d8d8;
+                box-shadow: inset 2px 0 0 -1px #d8d8d8,
+                            inset 0 2px 0 -1px #d8d8d8,
+                            inset 0 -2px 0 -1px #d8d8d8;
+    }
+
+    .menu_grupo .btn_toggle.checked {
+        color: #fff;
+        text-shadow: 0 -1px 1px rgba(0,0,0,0.5);
+        background: #555555;
+        -webkit-box-shadow: inset #555 0 0 0 1px;
+                box-shadow: inset #555 0 0 0 1px;
+    }
+
+.menu_grupo .btn_hoy{
+    border-radius: 3px;
+}
+
+    .menu_grupo .btn_hoy:active {
+        background-color: #555555;
+        color: #fff;
+        text-shadow: 0 -1px 1px rgba(0,0,0,0.5);
+        -webkit-box-shadow: inset 0 0 0 1px #555555;
+                box-shadow: inset 0 0 0 1px #555555;
+    }
+

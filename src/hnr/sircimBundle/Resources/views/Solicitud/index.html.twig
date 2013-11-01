@@ -1,0 +1,51 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Solicitud list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Sotipo</th>
+                <th>Sofecha</th>
+                <th>Soregion</th>
+                <th>Soposicion</th>
+                <th>Idmntexpediente</th>
+                <th>Idmntatenareamodestab</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('solicitud_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.soTipo }}</td>
+                <td>{% if entity.soFecha %}{{ entity.soFecha|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ entity.soRegion }}</td>
+                <td>{{ entity.soPosicion }}</td>
+                <td>{{ entity.idMntExpediente }}</td>
+                <td>{{ entity.idMntAtenAreaModEstab }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('solicitud_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('solicitud_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('solicitud_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

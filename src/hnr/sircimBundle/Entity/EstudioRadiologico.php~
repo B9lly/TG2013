@@ -1,0 +1,50 @@
+<?php
+
+namespace hnr\sircimBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * EstudioRadiologico
+ *
+ * @ORM\Table(name="estudio_radiologico")
+ * @ORM\Entity
+ */
+class EstudioRadiologico
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="estudio_radiologico_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="er_edad_paciente", type="smallint", nullable=false)
+     */
+    private $erEdadPaciente;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="idempleado", type="string", length=7, nullable=false)
+     */
+    private $idempleado;
+
+    /**
+     * @var \Solicitud
+     *
+     * @ORM\ManyToOne(targetEntity="Solicitud")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_solicitud", referencedColumnName="id")
+     * })
+     */
+    private $idSolicitud;
+
+
+}

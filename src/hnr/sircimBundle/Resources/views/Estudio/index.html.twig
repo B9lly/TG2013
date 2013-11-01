@@ -1,0 +1,55 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Estudio list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Esnombre</th>
+                <th>Esabreviatura</th>
+                <th>Estipo</th>
+                <th>Esdescripcion</th>
+                <th>Esusuariocreacion</th>
+                <th>Esusuariomodificacion</th>
+                <th>Esfechacreacion</th>
+                <th>Esfechamodificacion</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('estudio_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.esNombre }}</td>
+                <td>{{ entity.esAbreviatura }}</td>
+                <td>{{ entity.esTipo }}</td>
+                <td>{{ entity.esDescripcion }}</td>
+                <td>{{ entity.esUsuarioCreacion }}</td>
+                <td>{{ entity.esUsuarioModificacion }}</td>
+                <td>{% if entity.esFechaCreacion %}{{ entity.esFechaCreacion|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if entity.esFechaModificacion %}{{ entity.esFechaModificacion|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('estudio_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('estudio_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('estudio_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

@@ -1,0 +1,57 @@
+<?php
+
+namespace hnr\sircimBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Horario
+ *
+ * @ORM\Table(name="horario")
+ * @ORM\Entity
+ */
+class Horario
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="horario_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ho_dia", type="string", length=9, nullable=false)
+     */
+    private $hoDia;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="ho_hora_inicio", type="time", nullable=false)
+     */
+    private $hoHoraInicio;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="ho_hora_fin", type="time", nullable=false)
+     */
+    private $hoHoraFin;
+
+    /**
+     * @var \EstudioArea
+     *
+     * @ORM\ManyToOne(targetEntity="EstudioArea")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_estudio_area", referencedColumnName="id")
+     * })
+     */
+    private $idEstudioArea;
+
+
+}

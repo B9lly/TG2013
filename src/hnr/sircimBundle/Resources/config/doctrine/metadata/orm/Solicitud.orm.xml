@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Solicitud" table="solicitud">
+    <id name="id" type="integer" column="id">
+      <generator strategy="SEQUENCE"/>
+    </id>
+    <field name="soTipo" type="smallint" column="so_tipo" nullable="false"/>
+    <field name="soFecha" type="date" column="so_fecha" nullable="false"/>
+    <field name="soRegion" type="string" column="so_region" length="50" nullable="false"/>
+    <field name="soPosicion" type="text" column="so_posicion" nullable="false"/>
+    <field name="idMntExpediente" type="bigint" column="id_mnt_expediente" nullable="false"/>
+    <field name="idMntAtenAreaModEstab" type="integer" column="id_mnt_aten_area_mod_estab" nullable="true"/>
+    <many-to-one field="idEstudioArea" target-entity="EstudioArea">
+      <join-columns>
+        <join-column name="id_estudio_area" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

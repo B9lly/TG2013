@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Horario" table="horario">
+    <id name="id" type="integer" column="id">
+      <generator strategy="SEQUENCE"/>
+    </id>
+    <field name="hoDia" type="string" column="ho_dia" length="9" nullable="false"/>
+    <field name="hoHoraInicio" type="time" column="ho_hora_inicio" nullable="false"/>
+    <field name="hoHoraFin" type="time" column="ho_hora_fin" nullable="false"/>
+    <many-to-one field="idEstudioArea" target-entity="EstudioArea">
+      <join-columns>
+        <join-column name="id_estudio_area" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

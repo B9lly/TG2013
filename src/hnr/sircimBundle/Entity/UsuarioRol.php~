@@ -1,0 +1,53 @@
+<?php
+
+namespace hnr\sircimBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * UsuarioRol
+ *
+ * @ORM\Table(name="usuario_rol")
+ * @ORM\Entity
+ */
+class UsuarioRol
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="usuario_rol_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="usro_predeterminado", type="smallint", nullable=true)
+     */
+    private $usroPredeterminado;
+
+    /**
+     * @var \Usuario
+     *
+     * @ORM\ManyToOne(targetEntity="Usuario")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_usuario", referencedColumnName="id")
+     * })
+     */
+    private $idUsuario;
+
+    /**
+     * @var \Rol
+     *
+     * @ORM\ManyToOne(targetEntity="Rol")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_rol", referencedColumnName="id")
+     * })
+     */
+    private $idRol;
+
+
+}

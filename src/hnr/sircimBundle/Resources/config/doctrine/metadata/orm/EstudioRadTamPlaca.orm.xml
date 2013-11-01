@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="EstudioRadTamPlaca" table="estudio_rad_tam_placa">
+    <id name="id" type="integer" column="id">
+      <generator strategy="SEQUENCE"/>
+    </id>
+    <field name="ertpAceptadas" type="smallint" column="ertp_aceptadas" nullable="false"/>
+    <field name="ertpDescartadas" type="smallint" column="ertp_descartadas" nullable="false"/>
+    <many-to-one field="idTamano" target-entity="TamanoPlaca">
+      <join-columns>
+        <join-column name="id_tamano" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="idEstudioRadiologico" target-entity="EstudioRadiologico">
+      <join-columns>
+        <join-column name="id_estudio_radiologico" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

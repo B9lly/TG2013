@@ -1,0 +1,51 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>TamanoPlaca list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Tptamano</th>
+                <th>Tpestado</th>
+                <th>Tpusuariocreacion</th>
+                <th>Tpusuariomodificacion</th>
+                <th>Tpfechacreacion</th>
+                <th>Tpfechamodificacion</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('tamanoplaca_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.tpTamano }}</td>
+                <td>{{ entity.tpEstado }}</td>
+                <td>{{ entity.tpUsuarioCreacion }}</td>
+                <td>{{ entity.tpUsuarioModificacion }}</td>
+                <td>{% if entity.tpFechaCreacion %}{{ entity.tpFechaCreacion|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if entity.tpFechaModificacion %}{{ entity.tpFechaModificacion|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('tamanoplaca_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('tamanoplaca_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('tamanoplaca_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

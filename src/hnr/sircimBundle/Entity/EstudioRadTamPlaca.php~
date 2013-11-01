@@ -1,0 +1,60 @@
+<?php
+
+namespace hnr\sircimBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * EstudioRadTamPlaca
+ *
+ * @ORM\Table(name="estudio_rad_tam_placa")
+ * @ORM\Entity
+ */
+class EstudioRadTamPlaca
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="estudio_rad_tam_placa_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ertp_aceptadas", type="smallint", nullable=false)
+     */
+    private $ertpAceptadas;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ertp_descartadas", type="smallint", nullable=false)
+     */
+    private $ertpDescartadas;
+
+    /**
+     * @var \EstudioRadiologico
+     *
+     * @ORM\ManyToOne(targetEntity="EstudioRadiologico")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_estudio_radiologico", referencedColumnName="id")
+     * })
+     */
+    private $idEstudioRadiologico;
+
+    /**
+     * @var \TamanoPlaca
+     *
+     * @ORM\ManyToOne(targetEntity="TamanoPlaca")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_tamano", referencedColumnName="id")
+     * })
+     */
+    private $idTamano;
+
+
+}

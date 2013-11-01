@@ -1,0 +1,86 @@
+{% extends 'hnrsircimBundle::Layout.html.twig' %}
+
+{% block body -%}
+    <h1>Cita creation</h1>
+
+    <form action="{{ path('cita_create') }}" method="post" {{ form_enctype(form) }}>
+        {# form_widget(form) #}
+        {{ form_errors(form) }}
+        {{ form_row(form.idSolicitud.idMntExpediente) }}
+        {{ form_row(form.idSolicitud.Nombre) }}
+        {{ form_row(form.ciEdadPaciente) }}
+        {{ form_row(form.idSolicitud.idMntAtenAreaModEstab) }}    
+        {{ form_row(form.idSolicitud.EstudioArea) }}        
+        {{ form_row(form.idSolicitud.soRegion) }}    
+        {{ form_row(form.idSolicitud.soPosicion) }}
+        {{ form_row(form.idSolicitud.soFecha) }} 
+        {# form_row(form.idSolicitud.soTipo) #}  
+        {{ form_rest(form) }}
+            
+            
+        <p>
+            <button type="submit">Create</button>
+        </p>
+    </form>
+
+    <ul class="record_actions">
+        <li>
+            <a href="{{ path('cita') }}">
+                Back to the list
+            </a>
+        </li>
+    </ul>
+    
+    <div class="result"></div>
+{% endblock %}
+
+{% block script %}
+    <script>
+    $(document).ready( function(){
+        document.getElementById("hnr_sircimbundle_citatype_idSolicitud_soRegion").disabled = true;
+    });
+    
+    //Info de paciente
+    $('#hnr_sircimbundle_citatype_idSolicitud_idMntExpediente').keyup(function(){
+        
+            $parameters = '?numExpediente=' + $(this).val();
+            
+            $.getJSON(Routing.generate('get_infopaciente')+$parameters,
+                    function(data) {
+                        $.each(data.regs, function(indice, reg) {
+                            $('#hnr_sircimbundle_citatype_idSolicitud_Nombre').val( reg.Nombre );
+                            $('#hnr_sircimbundle_citatype_ciEdadPaciente').val( reg.Edad );                            
+                        });
+                    });
+        
+    });
+    
+    //Listas desplegables
+    $('select[id$="_idSolicitud_EstudioArea"]').change(function() {
+        
+        $('select[id$="_idSolicitud_soRegion"]').children().remove();
+        $('select[id$="_idSolicitud_soRegion"]').append('<option value="">Seleccione...</option>');
+        $('select[id$="_idSolicitud_soPosicion"]').children().remove();
+        $('select[id$="_idSolicitud_soPosicion"]').append('<option value="">Seleccione...</option>');
+        
+        $parameters = '?nomEstudio=' + $(this).find("option:selected").text();
+                
+        $.getJSON(Routing.generate('get_regiones')+$parameters,
+                    function(data) {
+                        $.each(data.regs, function(indice, reg) {
+                            $('select[id$="_idSolicitud_soRegion"]').append('<option value="' + reg.reNombre + '">' + reg.reNombre + '</option>');                       
+                        });
+                    });
+        
+        $.getJSON(Routing.generate('get_posiciones')+$parameters,
+                    function(data) {
+                        $.each(data.regs, function(indice, reg) {
+                            $('select[id$="_idSolicitud_soPosicion"]').append('<option value="' + reg.poNombre + '">' + reg.poNombre + '</option>');                       
+                        });
+                    });
+                    
+        $('select[id$="_idSolicitud_soRegion"]').removeAttr('disabled');
+    });
+    
+    </script>
+{% endblock %}

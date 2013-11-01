@@ -1,0 +1,46 @@
+<?php
+
+namespace hnr\sircimBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * EstudioRegion
+ *
+ * @ORM\Table(name="estudio_region")
+ * @ORM\Entity
+ */
+class EstudioRegion
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="estudio_region_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var \Region
+     *
+     * @ORM\ManyToOne(targetEntity="Region")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_region", referencedColumnName="id")
+     * })
+     */
+    private $idRegion;
+
+    /**
+     * @var \Estudio
+     *
+     * @ORM\ManyToOne(targetEntity="Estudio")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_estudio", referencedColumnName="id")
+     * })
+     */
+    private $idEstudio;
+
+
+}

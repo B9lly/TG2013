@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Estudio" table="estudio">
+    <id name="id" type="integer" column="id">
+      <generator strategy="SEQUENCE"/>
+    </id>
+    <field name="esNombre" type="string" column="es_nombre" length="50" nullable="false"/>
+    <field name="esAbreviatura" type="string" column="es_abreviatura" length="10" nullable="false"/>
+    <field name="esTipo" type="string" column="es_tipo" length="15" nullable="false"/>
+    <field name="esDescripcion" type="string" column="es_descripcion" length="100" nullable="false"/>
+    <field name="esUsuarioCreacion" type="string" column="es_usuario_creacion" length="15" nullable="false"/>
+    <field name="esUsuarioModificacion" type="string" column="es_usuario_modificacion" length="15" nullable="true"/>
+    <field name="esFechaCreacion" type="datetime" column="es_fecha_creacion" nullable="false"/>
+    <field name="esFechaModificacion" type="datetime" column="es_fecha_modificacion" nullable="true"/>
+  </entity>
+</doctrine-mapping>

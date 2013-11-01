@@ -1,0 +1,66 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Estudio</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Esnombre</th>
+                <td>{{ entity.esNombre }}</td>
+            </tr>
+            <tr>
+                <th>Esabreviatura</th>
+                <td>{{ entity.esAbreviatura }}</td>
+            </tr>
+            <tr>
+                <th>Estipo</th>
+                <td>{{ entity.esTipo }}</td>
+            </tr>
+            <tr>
+                <th>Esdescripcion</th>
+                <td>{{ entity.esDescripcion }}</td>
+            </tr>
+            <tr>
+                <th>Esusuariocreacion</th>
+                <td>{{ entity.esUsuarioCreacion }}</td>
+            </tr>
+            <tr>
+                <th>Esusuariomodificacion</th>
+                <td>{{ entity.esUsuarioModificacion }}</td>
+            </tr>
+            <tr>
+                <th>Esfechacreacion</th>
+                <td>{{ entity.esFechaCreacion|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Esfechamodificacion</th>
+                <td>{{ entity.esFechaModificacion|date('Y-m-d H:i:s') }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('estudio') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('estudio_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>
+        <form action="{{ path('estudio_delete', { 'id': entity.id }) }}" method="post">
+            <input type="hidden" name="_method" value="DELETE" />
+            {{ form_widget(delete_form) }}
+            <button type="submit">Delete</button>
+        </form>
+    </li>
+</ul>
+{% endblock %}

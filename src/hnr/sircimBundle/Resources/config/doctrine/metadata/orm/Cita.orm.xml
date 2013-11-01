@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Cita" table="cita">
+    <id name="id" type="integer" column="id">
+      <generator strategy="SEQUENCE"/>
+    </id>
+    <field name="ciEdadPaciente" type="smallint" column="ci_edad_paciente" nullable="false"/>
+    <field name="ciEstado" type="string" column="ci_estado" length="11" nullable="false"/>
+    <many-to-one field="idSolicitud" target-entity="Solicitud">
+      <join-columns>
+        <join-column name="id_solicitud" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

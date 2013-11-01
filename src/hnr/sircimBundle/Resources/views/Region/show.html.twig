@@ -1,0 +1,54 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Region</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Renombre</th>
+                <td>{{ entity.reNombre }}</td>
+            </tr>
+            <tr>
+                <th>Reusuariocreacion</th>
+                <td>{{ entity.reUsuarioCreacion }}</td>
+            </tr>
+            <tr>
+                <th>Reusuariomodificacion</th>
+                <td>{{ entity.reUsuarioModificacion }}</td>
+            </tr>
+            <tr>
+                <th>Refechacreacion</th>
+                <td>{{ entity.reFechaCreacion|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Refechamodificacion</th>
+                <td>{{ entity.reFechaModificacion|date('Y-m-d H:i:s') }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('region') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('region_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>
+        <form action="{{ path('region_delete', { 'id': entity.id }) }}" method="post">
+            <input type="hidden" name="_method" value="DELETE" />
+            {{ form_widget(delete_form) }}
+            <button type="submit">Delete</button>
+        </form>
+    </li>
+</ul>
+{% endblock %}

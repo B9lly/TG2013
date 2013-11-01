@@ -1,0 +1,61 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Usuario list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Uslogin</th>
+                <th>Uscorreo</th>
+                <th>Uscontrasena</th>
+                <th>Usactualizarcontrasena</th>
+                <th>Usestadoactivo</th>
+                <th>Usestadobloqueado</th>
+                <th>Idempleado</th>
+                <th>Ususuariocreacion</th>
+                <th>Ususuariomodificacion</th>
+                <th>Usfechacreacion</th>
+                <th>Usfechamodificacion</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('usuario_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.usLogin }}</td>
+                <td>{{ entity.usCorreo }}</td>
+                <td>{{ entity.usContrasena }}</td>
+                <td>{{ entity.usActualizarContrasena }}</td>
+                <td>{{ entity.usEstadoActivo }}</td>
+                <td>{{ entity.usEstadoBloqueado }}</td>
+                <td>{{ entity.idempleado }}</td>
+                <td>{{ entity.usUsuarioCreacion }}</td>
+                <td>{{ entity.usUsuarioModificacion }}</td>
+                <td>{% if entity.usFechaCreacion %}{{ entity.usFechaCreacion|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if entity.usFechaModificacion %}{{ entity.usFechaModificacion|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('usuario_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('usuario_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('usuario_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

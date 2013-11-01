@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Diagnostico" table="diagnostico">
+    <id name="id" type="integer" column="id">
+      <generator strategy="SEQUENCE"/>
+    </id>
+    <field name="diResultado" type="text" column="di_resultado" nullable="false"/>
+    <field name="diConclusion" type="text" column="di_conclusion" nullable="false"/>
+    <field name="idempleado" type="string" column="idempleado" length="7" nullable="false"/>
+    <many-to-one field="idEstudioRadiologico" target-entity="EstudioRadiologico">
+      <join-columns>
+        <join-column name="id_estudio_radiologico" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

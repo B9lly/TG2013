@@ -1,0 +1,82 @@
+<?php
+
+namespace hnr\sircimBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Estudio
+ *
+ * @ORM\Table(name="estudio")
+ * @ORM\Entity
+ */
+class Estudio
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="estudio_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="es_nombre", type="string", length=50, nullable=false)
+     */
+    private $esNombre;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="es_abreviatura", type="string", length=10, nullable=false)
+     */
+    private $esAbreviatura;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="es_tipo", type="string", length=15, nullable=false)
+     */
+    private $esTipo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="es_descripcion", type="string", length=100, nullable=false)
+     */
+    private $esDescripcion;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="es_usuario_creacion", type="string", length=15, nullable=false)
+     */
+    private $esUsuarioCreacion;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="es_usuario_modificacion", type="string", length=15, nullable=true)
+     */
+    private $esUsuarioModificacion;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="es_fecha_creacion", type="datetime", nullable=false)
+     */
+    private $esFechaCreacion;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="es_fecha_modificacion", type="datetime", nullable=true)
+     */
+    private $esFechaModificacion;
+
+
+}

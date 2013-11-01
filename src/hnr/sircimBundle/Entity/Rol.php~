@@ -1,0 +1,82 @@
+<?php
+
+namespace hnr\sircimBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Rol
+ *
+ * @ORM\Table(name="rol")
+ * @ORM\Entity
+ */
+class Rol
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="rol_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ro_nombre", type="string", length=50, nullable=false)
+     */
+    private $roNombre;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ro_descripcion", type="string", length=100, nullable=false)
+     */
+    private $roDescripcion;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ro_modificable", type="smallint", nullable=false)
+     */
+    private $roModificable;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ro_estado", type="smallint", nullable=false)
+     */
+    private $roEstado;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ro_usuario_creacion", type="string", length=15, nullable=false)
+     */
+    private $roUsuarioCreacion;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ro_usuario_modificacion", type="string", length=15, nullable=true)
+     */
+    private $roUsuarioModificacion;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="ro_fecha_creacion", type="datetime", nullable=false)
+     */
+    private $roFechaCreacion;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="ro_fecha_modificacion", type="datetime", nullable=true)
+     */
+    private $roFechaModificacion;
+
+
+}

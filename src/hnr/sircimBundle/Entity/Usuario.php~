@@ -1,0 +1,103 @@
+<?php
+
+namespace hnr\sircimBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Usuario
+ *
+ * @ORM\Table(name="usuario")
+ * @ORM\Entity
+ */
+class Usuario
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="usuario_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="us_login", type="string", length=15, nullable=false)
+     */
+    private $usLogin;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="us_correo", type="text", nullable=false)
+     */
+    private $usCorreo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="us_contrasena", type="string", length=128, nullable=false)
+     */
+    private $usContrasena;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="us_actualizar_contrasena", type="smallint", nullable=false)
+     */
+    private $usActualizarContrasena;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="us_estado_activo", type="smallint", nullable=false)
+     */
+    private $usEstadoActivo;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="us_estado_bloqueado", type="smallint", nullable=false)
+     */
+    private $usEstadoBloqueado;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="idempleado", type="string", length=7, nullable=false)
+     */
+    private $idempleado;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="us_usuario_creacion", type="string", length=15, nullable=false)
+     */
+    private $usUsuarioCreacion;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="us_usuario_modificacion", type="string", length=15, nullable=true)
+     */
+    private $usUsuarioModificacion;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="us_fecha_creacion", type="datetime", nullable=false)
+     */
+    private $usFechaCreacion;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="us_fecha_modificacion", type="datetime", nullable=true)
+     */
+    private $usFechaModificacion;
+
+
+}
